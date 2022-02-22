@@ -93,7 +93,7 @@ ax.set_title('Company Comparison', pad=15, color='#333333',
 
 fig.tight_layout()
 
-st.pyplot
+st.pyplot(fig)
 
 
 # In[6]:
@@ -143,7 +143,7 @@ ax.set_title('Company Comparison', pad=15, color='#333333',
 
 fig.tight_layout()
 
-st.pyplot(fig)
+st.pyplot()
 
 
 # In[ ]:
