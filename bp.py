@@ -28,24 +28,23 @@ df.set_index("Unternehmen")
 list(df.columns)
 
 
-# In[4]:
-
-
-df['Unternehmen']
-
 
 # In[5]:
 
 
 
+
 option_company = st.multiselect(
      'What companies do you want to compare?',
-     df['Unternehmen'])
+      ['Audi AG', 'BMW Group', 'Mercedes-Benz Group'])
+
 
 option_dimension = st.selectbox(
      'Which dimension would you like to inspect?',
-     (df['Gehalt und Sozialleistungen'], df['Image', df['Karriere und Weiterbildung'], df['Arbeitsatmosphäre'], df['Kommunikation'], df['Kollegenzusammenhalt'],df['Work-Life-Balance'], df['Vorgesetztenverhalten'], df['Interessante Aufgaben'], df['Arbeitsbedingungen'], df['Umwelt- und Sozialbewusstsein'], df['Gleichberechtigung'], df['Umgang mit älteren Kollegen']))
-
+     ('Gehalt und Sozialleistungen', 'Image', 'Karriere und Weiterbildung', 'Arbeitsatmosphäre', 
+      'Kommunikation','Kollegenzusammenhalt','Work-Life-Balance', 'Vorgesetztenverhalten', 
+      'Interessante Aufgaben', 'Arbeitsbedingungen','Umwelt- und Sozialbewusstsein', 'Gleichberechtigung', 
+      'Umgang mit älteren Kollegen'))
 
 
 from matplotlib import pyplot as plt
@@ -57,8 +56,8 @@ data_color = ['#000099', '#009BD2', '#4BD0FF', '#87BC49', '#F5C500', '#FFE060']
 
 # Save the chart so we can loop through the bars below.
 bars = ax.bar(
-    x=option_company,
-    height=option_dimension,
+    x=df["Unternehmen"].isin([option_company]),
+    height=df[option_dimension],
     color = data_color
 )
 
@@ -86,8 +85,8 @@ for bar in bars:
  )
 
 # Add labels and a title.
-ax.set_xlabel('Xlabel', labelpad=15, color='#333333')
-ax.set_ylabel('Ylabel', labelpad=15, color='#333333')
+ax.set_xlabel('Companies', labelpad=15, color='#333333')
+ax.set_ylabel('Rating', labelpad=15, color='#333333')
 ax.set_title('Company Comparison', pad=15, color='#333333',
              weight='bold')
 
