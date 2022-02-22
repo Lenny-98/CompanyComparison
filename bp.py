@@ -34,9 +34,9 @@ list(df.columns)
 
 
 
-option_company = st.multiselect(
-     'What companies do you want to compare?',
-      ['Audi AG', 'BMW Group', 'Mercedes-Benz Group'])
+#option_company = st.multiselect(
+#     'What companies do you want to compare?',
+#      ['Audi AG', 'BMW Group', 'Mercedes-Benz Group'])
 
 
 option_dimension = st.selectbox(
@@ -56,7 +56,7 @@ data_color = ['#000099', '#009BD2', '#4BD0FF', '#87BC49', '#F5C500', '#FFE060']
 
 # Save the chart so we can loop through the bars below.
 bars = ax.bar(
-    x=df["Unternehmen"].isin([option_company]),
+    x=df["Unternehmen"],
     height=df[option_dimension],
     color = data_color
 )
