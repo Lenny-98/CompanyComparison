@@ -44,7 +44,7 @@ option_company = st.multiselect(
 
 option_dimension = st.selectbox(
      'Which dimension would you like to inspect?',
-     (list(df.columns)))
+     (df['Gehalt und Sozialleistungen', 'Image', 'Karriere und Weiterbildung', 'Arbeitsatmosphäre', 'Kommunikation', 'Kollegenzusammenhalt','Work-Life-Balance', 'Vorgesetztenverhalten', 'Interessante Aufgaben', 'Arbeitsbedingungen', 'Umwelt- und Sozialbewusstsein', 'Gleichberechtigung', 'Umgang mit älteren Kollegen']))
 
 
 
