@@ -53,9 +53,6 @@ chosen_object = [option_dimension]
 selected_df = df[df['Unternehmen'].isin(option_company)]
 
 
-
-print(selected_df)
-
 from matplotlib import pyplot as plt
 
 fig, ax = plt.subplots()
@@ -81,17 +78,17 @@ ax.set_axisbelow(True)
 ax.yaxis.grid(True, color='#EEEEEE')
 ax.xaxis.grid(False)
 
-# Add text annotations to the top of the bars.
-#bar_color = 'b'
-#for bar in bars:
-#    ax.text(
- #    bar.get_x() + bar.get_width() / 2,
- #    bar.get_height() + 0.2,
- #    round(bar.get_height(), 1),
- #    horizontalalignment='center',
- #    color=bar_color,
- #    weight='bold'
- #)
+Add text annotations to the top of the bars.
+bar_color = 'b'
+for bar in bars:
+    ax.text(
+    bar.get_x() + bar.get_width() / 2,
+    bar.get_height() + 0.2,
+    round(bar.get_height(), 1),
+    horizontalalignment='center',
+    color=bar_color,
+    weight='bold'
+)
 
 # Add labels and a title.
 ax.set_xlabel('Unternehmen', labelpad=15, color='#333333')
