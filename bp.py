@@ -46,7 +46,7 @@ option_dimension = st.selectbox(
       'Umgang mit älteren Kollegen'))
 
 #Convert the string output of option_dimension to a list
-chosen_object = list[option_dimension]
+chosen_object = [option_dimension]
 
 #Create Subset to be able to access values in barplot
 selected_df = df[df['Unternehmen'].isin(option_company)][df[option_dimension].isin(chosen_object)]
