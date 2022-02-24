@@ -45,9 +45,11 @@ option_dimension = st.selectbox(
       'Interessante Aufgaben', 'Arbeitsbedingungen','Umwelt- und Sozialbewusstsein', 'Gleichberechtigung', 
       'Umgang mit älteren Kollegen'))
 
+#Convert the string output of option_dimension to a list
+chosen_object = list[option_dimension]
 
 #Create Subset to be able to access values in barplot
-selected_df = df[df['Unternehmen'].isin(option_company)][df[option_dimension]]
+selected_df = df[df['Unternehmen'].isin(option_company)][df[option_dimension].isin(chosen_object)]
 
 from matplotlib import pyplot as plt
 
