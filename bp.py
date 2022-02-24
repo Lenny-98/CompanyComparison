@@ -47,7 +47,7 @@ option_dimension = st.selectbox(
 
 
 #Create Subset to be able to access values in barplot
-selected_df = df[df['Unternehmen'].isin(option_company)][df['option_dimension']]
+selected_df = df[df['Unternehmen'].isin(option_company)][df[option_dimension]]
 
 from matplotlib import pyplot as plt
 
@@ -59,7 +59,7 @@ data_color = ['#000099', '#009BD2', '#4BD0FF', '#87BC49', '#F5C500', '#FFE060']
 # Save the chart so we can loop through the bars below.
 bars = ax.bar(
     x= selected_df["Unternehmen"],
-    height= selected_df["option_dimension"],
+    height= selected_df[option_dimension],
     color = data_color
 )
 
@@ -95,9 +95,3 @@ ax.set_title('Company Comparison', pad=15, color='#333333',
 fig.tight_layout()
 
 st.pyplot(fig)
-
-
-
-
-
-
