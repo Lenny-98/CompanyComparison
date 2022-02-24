@@ -56,7 +56,7 @@ data_color = ['#000099', '#009BD2', '#4BD0FF', '#87BC49', '#F5C500', '#FFE060']
 
 # Save the chart so we can loop through the bars below.
 bars = ax.bar(
-    x=df['Unternehmen'][0],
+    x= df.loc[(df['Unternehmen']= option_company),
     height=df[option_dimension],
     color = data_color
 )
