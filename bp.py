@@ -37,6 +37,7 @@ company = df['Unternehmen']
 #Multiselect option
 option_company = st.multiselect('What companies do you want to compare?', company)
 
+
 #Selectbox option
 option_dimension = st.selectbox(
      'Which dimension would you like to inspect?',
@@ -49,7 +50,11 @@ option_dimension = st.selectbox(
 chosen_object = [option_dimension]
 
 #Create Subset to be able to access values in barplot
-selected_df = df[df['Unternehmen'].isin(option_company)][df[option_dimension].isin(chosen_object)]
+selected_df = df[df['Unternehmen'].isin(option_company)]
+
+
+
+print(selected_df)
 
 from matplotlib import pyplot as plt
 
