@@ -94,9 +94,9 @@ ax.xaxis.grid(False)
  #)
 
 # Add labels and a title.
-ax.set_xlabel('Companies', labelpad=15, color='#333333')
-ax.set_ylabel('Rating', labelpad=15, color='#333333')
-ax.set_title('Company Comparison', pad=15, color='#333333',
+ax.set_xlabel('Unternehmen', labelpad=15, color='#333333')
+ax.set_ylabel('Bewertung', labelpad=15, color='#333333')
+ax.set_title('Unternehmen im Vergleich', pad=15, color='#333333',
              weight='bold')
 
 fig.tight_layout()
