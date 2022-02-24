@@ -32,15 +32,15 @@ list(df.columns)
 # In[5]:
 
 
-company = df['Unternehmen'].unique()
+company = df['Unternehmen']
 
+#Multiselect option
+option_company = st.multiselect('What companies do you want to compare?', company)
 
-option_company = st.multiselect(
-     'What companies do you want to compare?', company)
+#Create Subset to be able to access values in barplot
+subset = pd.DataFrame(option_company, columns = ["Company"])
 
-options_chosen = df['Unternehmen'].isin(option_company)
-
-
+#Selectbox option
 option_dimension = st.selectbox(
      'Which dimension would you like to inspect?',
      ('Gehalt und Sozialleistungen', 'Image', 'Karriere und Weiterbildung', 'Arbeitsatmosphäre', 
@@ -58,7 +58,7 @@ data_color = ['#000099', '#009BD2', '#4BD0FF', '#87BC49', '#F5C500', '#FFE060']
 
 # Save the chart so we can loop through the bars below.
 bars = ax.bar(
-    x= df[options_chosen],
+    x= df2['Company'],
     height=df[option_dimension],
     color = data_color
 )
@@ -75,27 +75,26 @@ ax.yaxis.grid(True, color='#EEEEEE')
 ax.xaxis.grid(False)
 
 # Add text annotations to the top of the bars.
-bar_color = 'b'
-for bar in bars:
-    ax.text(
-     bar.get_x() + bar.get_width() / 2,
-     bar.get_height() + 0.2,
-     round(bar.get_height(), 1),
-     horizontalalignment='center',
-     color=bar_color,
-     weight='bold'
- )
+#bar_color = 'b'
+#for bar in bars:
+#    ax.text(
+ #    bar.get_x() + bar.get_width() / 2,
+ #    bar.get_height() + 0.2,
+ #    round(bar.get_height(), 1),
+ #    horizontalalignment='center',
+ #    color=bar_color,
+ #    weight='bold'
+ #)
 
 # Add labels and a title.
-ax.set_xlabel('Unternehmen', labelpad=15, color='#333333')
-ax.set_ylabel('Bewertung', labelpad=15, color='#333333')
-ax.set_title('Kununu Bewertungen im Vergleich', pad=15, color='#333333',
+ax.set_xlabel('Companies', labelpad=15, color='#333333')
+ax.set_ylabel('Rating', labelpad=15, color='#333333')
+ax.set_title('Company Comparison', pad=15, color='#333333',
              weight='bold')
 
 fig.tight_layout()
 
 st.pyplot(fig)
-
 
 
 
