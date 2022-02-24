@@ -78,7 +78,7 @@ ax.set_axisbelow(True)
 ax.yaxis.grid(True, color='#EEEEEE')
 ax.xaxis.grid(False)
 
-Add text annotations to the top of the bars.
+#Add text annotations to the top of the bars.
 bar_color = 'b'
 for bar in bars:
     ax.text(
