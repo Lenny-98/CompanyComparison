@@ -37,9 +37,6 @@ company = df['Unternehmen']
 #Multiselect option
 option_company = st.multiselect('What companies do you want to compare?', company)
 
-#Create Subset to be able to access values in barplot
-df2 = pd.DataFrame(option_company, columns = ["Company"])
-
 #Selectbox option
 option_dimension = st.selectbox(
      'Which dimension would you like to inspect?',
@@ -48,6 +45,9 @@ option_dimension = st.selectbox(
       'Interessante Aufgaben', 'Arbeitsbedingungen','Umwelt- und Sozialbewusstsein', 'Gleichberechtigung', 
       'Umgang mit älteren Kollegen'))
 
+
+#Create Subset to be able to access values in barplot
+selected_df = df[df['Unternehmen'].isin(option_company)][df['option_dimension']]
 
 from matplotlib import pyplot as plt
 
@@ -58,8 +58,8 @@ data_color = ['#000099', '#009BD2', '#4BD0FF', '#87BC49', '#F5C500', '#FFE060']
 
 # Save the chart so we can loop through the bars below.
 bars = ax.bar(
-    x= df2['Company'],
-    height=df[option_dimension],
+    x= selected_df[0],
+    height= selected_df[1],
     color = data_color
 )
 
