@@ -38,7 +38,7 @@ company = df['Unternehmen']
 option_company = st.multiselect('What companies do you want to compare?', company)
 
 #Create Subset to be able to access values in barplot
-subset = pd.DataFrame(option_company, columns = ["Company"])
+df2 = pd.DataFrame(option_company, columns = ["Company"])
 
 #Selectbox option
 option_dimension = st.selectbox(
